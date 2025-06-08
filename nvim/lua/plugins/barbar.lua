@@ -1,4 +1,4 @@
-vim.g.bufferline = {
+require('barbar').setup = {
     animation = true,
     auto_hide = false,
     tabpages = false,

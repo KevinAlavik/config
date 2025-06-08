@@ -4,9 +4,6 @@ local keymap = vim.keymap.set
 keymap("n", "<Tab>", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
 keymap("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>x", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
-keymap("n", "<leader>tn", "<Cmd>enew<CR>", { desc = "New buffer" })
-
--- Telescope keybinds are in lua/plugins/telescope.lua
 
 -- LSP
 keymap("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to definition" })

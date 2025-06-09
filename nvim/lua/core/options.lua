@@ -1,6 +1,8 @@
+-- Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Misc
 local opt = vim.opt
 opt.termguicolors = true
 opt.background = "dark"

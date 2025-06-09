@@ -1,9 +1,13 @@
 local keymap = vim.keymap.set
 
--- Barbar
+-- Buffers
 keymap("n", "<Tab>", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
 keymap("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>q", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
+keymap("n", "<leader>bp", "<Cmd>BufferPin<CR>", { desc = "Pin buffer" })
+keymap("n", "<leader>bc", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close all but current buffer" })
+keymap("n", "<leader>bo", "<Cmd>BufferOrderByDirectory<CR>", { desc = "Order buffers by directory" })
+keymap("n", "<leader>bn", "<Cmd>enew<CR>", { desc = "New empty buffer" })
 
 -- LSP
 keymap("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to definition" })

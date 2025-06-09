@@ -12,6 +12,7 @@ Plug("romgrk/barbar.nvim")
 Plug("nvim-lualine/lualine.nvim")
 Plug("lukas-reineke/indent-blankline.nvim")
 Plug("rktjmp/lush.nvim")
+Plug("lewis6991/gitsigns.nvim")
 
 -- Themes (i like to switch themes offten...)
 Plug("AlexvZyl/nordic.nvim")

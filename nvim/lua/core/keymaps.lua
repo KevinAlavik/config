@@ -3,7 +3,7 @@ local keymap = vim.keymap.set
 -- Barbar
 keymap("n", "<Tab>", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
 keymap("n", "<S-Tab>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
-keymap("n", "<leader>x", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
+keymap("n", "<leader>q", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
 
 -- LSP
 keymap("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to definition" })

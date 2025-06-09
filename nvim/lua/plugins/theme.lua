@@ -1,4 +1,5 @@
 local theme = "kanagawa"
+local v = "dragon"
 
 if theme == "onedark" then
     -- Custom onedark based theme...
@@ -35,6 +36,6 @@ if theme == "onedark" then
     }
     require("onedark").load()
 else
-    require(theme).load()
+    require(theme).load(v)
 end
 

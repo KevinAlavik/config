@@ -11,6 +11,11 @@ require('barbar').setup {
         modified = { button = "●" },
         pinned = { button = "車", filename = true, separator = { left = "", right = "" } },
         close_button = "",
+        gitsigns = {
+            added = {enabled = true, icon = '+'},
+            changed = {enabled = true, icon = '~'},
+            deleted = {enabled = true, icon = '-'},
+        },
     },
     maximum_padding = 2,
     minimum_padding = 1,

@@ -11,6 +11,7 @@ Plug("nvim-tree/nvim-web-devicons")
 Plug("romgrk/barbar.nvim")
 Plug("nvim-lualine/lualine.nvim")
 Plug("navarasu/onedark.nvim")
+Plug("lukas-reineke/indent-blankline.nvim")
 
 vim.call("plug#end")
 

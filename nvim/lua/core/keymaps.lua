@@ -17,4 +17,3 @@ keymap("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Previous diagnosti
 
 -- Signature help
 keymap("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "Signature help" })
-

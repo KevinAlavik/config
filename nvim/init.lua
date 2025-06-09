@@ -16,3 +16,4 @@ require("plugins.lualine")
 require("plugins.telescope")
 require("plugins.ibl")
 require("plugins.cmp")
+

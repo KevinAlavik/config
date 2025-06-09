@@ -17,3 +17,6 @@ opt.updatetime = 250
 opt.timeoutlen = 300
 opt.clipboard = "unnamedplus"
 
+local api = vim.api
+api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })

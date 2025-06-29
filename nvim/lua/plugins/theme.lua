@@ -1,9 +1,8 @@
-local theme = "kanagawa"
-local v = "dragon"
+local theme = "moonfly"
+-- local variant = "dragon" -- For themes that support variants
 
 if theme == "onedark" then
-    -- Custom onedark based theme...
-    require("onedark").setup {
+    require("onedark").setup({
         style = "darker",
         transparent = false,
         term_colors = true,
@@ -33,9 +32,17 @@ if theme == "onedark" then
             Pmenu = { bg = "#2c323c", fg = "#abb2bf" },
             PmenuSel = { bg = "#61afef", fg = "#1e222a" },
         },
-    }
+    })
     require("onedark").load()
 else
-    require(theme).load(v)
+    local ok, colorscheme = pcall(require, theme)
+    if ok then
+        if colorscheme.load then
+            colorscheme.load(variant)
+        else
+            vim.cmd("colorscheme " .. theme)
+        end
+    else
+        vim.notify("Theme '" .. theme .. "' not found.", vim.log.levels.ERROR)
+    end
 end
-

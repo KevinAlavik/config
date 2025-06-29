@@ -18,6 +18,7 @@ Plug("lewis6991/gitsigns.nvim")
 Plug("AlexvZyl/nordic.nvim")
 Plug("navarasu/onedark.nvim")
 Plug("rebelot/kanagawa.nvim")
+Plug("bluz71/vim-moonfly-colors", { ["as"] = "moonfly" })
 
 vim.call("plug#end")
 

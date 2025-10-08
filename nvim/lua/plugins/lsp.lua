@@ -1,53 +1,60 @@
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Capabilities
-local capabilities = cmp_nvim_lsp.default_capabilities()
+-- Global default config (optional)
+vim.lsp.config('*', {
+  capabilities = capabilities,
+  root_markers = { '.git' }, -- fallback root dir
+})
 
--- LSPs
-lspconfig.clangd.setup {
-    capabilities = capabilities,
-    filetypes = { "c", "cpp" },
-    on_attach = function(client, bufnr)
-        -- Format on save
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({ async = false })
-            end,
-        })
-    end,
-}
+-- Clangd
+vim.lsp.config('clangd', {
+  cmd = { 'clangd' },
+  filetypes = { 'c', 'cpp' },
+  root_markers = { '.clangd', 'compile_commands.json', '.git' },
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ async = false })
+      end,
+    })
+  end,
+})
+vim.lsp.enable('clangd')
 
-lspconfig.asm_lsp.setup {
-    capabilities = capabilities,
-    filetypes = { "asm" },
-}
+-- ASM LSP
+vim.lsp.config('asm_lsp', {
+  cmd = { 'asm-lsp' },
+  filetypes = { 'asm' },
+})
+vim.lsp.enable('asm_lsp')
 
-lspconfig.lua_ls.setup {
-    capabilities = capabilities,
-    on_init = function(client)
-        client.server_capabilities.didChangeWatchedFiles = false
-    end,
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-                path = vim.split(package.path, ";"),
-            },
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                library = {
-                    vim.api.nvim_get_runtime_file("", true)
-                },
-                checkThirdParty = false,
-                preloadFileSize = 1000,
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
+-- Lua LS
+vim.lsp.config('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
+  on_init = function(client)
+    client.server_capabilities.didChangeWatchedFiles = false
+  end,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        path = vim.split(package.path, ";"),
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+        preloadFileSize = 1000,
+      },
+      telemetry = {
+        enable = false,
+      },
     },
-}
+  },
+})
+vim.lsp.enable('lua_ls')

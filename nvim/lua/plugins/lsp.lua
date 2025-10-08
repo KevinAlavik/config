@@ -1,11 +1,10 @@
-local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 -- Capabilities
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- LSPs
-lspconfig.clangd.setup {
+vim.lsp.config.clangd.setup {
     capabilities = capabilities,
     filetypes = { "c", "cpp" },
     on_attach = function(client, bufnr)
@@ -19,12 +18,12 @@ lspconfig.clangd.setup {
     end,
 }
 
-lspconfig.asm_lsp.setup {
+vim.lsp.config.asm_lsp.setup {
     capabilities = capabilities,
     filetypes = { "asm" },
 }
 
-lspconfig.lua_ls.setup {
+vim.lsp.config.lua_ls.setup {
     capabilities = capabilities,
     on_init = function(client)
         client.server_capabilities.didChangeWatchedFiles = false
